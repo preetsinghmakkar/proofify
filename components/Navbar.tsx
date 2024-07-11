@@ -4,16 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { GitBranchIcon, Menu } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 const Navbar = () => {
+  const router = useRouter();
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href="/" className="flex flex-row items-center">
@@ -41,6 +36,9 @@ const Navbar = () => {
           variant="green"
           size={"lg"}
           className="rounded-full"
+          onClick={() => {
+            router.push("/sign-in");
+          }}
         >
           Get Started{" "}
         </Button>
@@ -76,11 +74,14 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
-
               <Button
                 type="button"
                 variant="green"
-                className="w-full rounded-full"
+                size={"lg"}
+                className="rounded-full"
+                onClick={() => {
+                  router.push("/sign-in");
+                }}
               >
                 Get Started{" "}
               </Button>

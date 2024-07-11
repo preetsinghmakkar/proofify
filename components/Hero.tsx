@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       <div className="hero-map" />
@@ -40,9 +43,17 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <Button type="button" title="Get Started" variant="green">
+          <Button
+            type="button"
+            title="Get Started"
+            variant="green"
+            onClick={() => {
+              router.push("/sign-in");
+            }}
+          >
             Get Started
           </Button>
+
           <Button type="button" title="Learn More" variant="green">
             Learn More
           </Button>
