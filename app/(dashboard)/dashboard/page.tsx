@@ -1,10 +1,9 @@
-import React from "react";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Home } from "@/components/HomeComponent";
 const page = () => {
   return (
-    <div>
-      User Profile : <UserButton showName />
-    </div>
+    <>
+      <Home />
+    </>
   );
 };
 
