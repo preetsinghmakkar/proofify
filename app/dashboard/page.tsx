@@ -1,4 +1,5 @@
 import { Home } from "@/components/HomeComponent";
+
 const page = () => {
   return (
     <>
