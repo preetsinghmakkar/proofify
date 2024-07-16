@@ -40,7 +40,7 @@ const Page = () => {
   const router = useRouter();
 
   const formSchema = z.object({
-    address: z.string().min(2).max(50),
+    address: z.string().min(10).max(50),
   });
 
   const form = useForm({
