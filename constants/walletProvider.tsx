@@ -13,13 +13,24 @@ import {
   baseSepolia,
   optimism,
   optimismSepolia,
+  polygonMumbai,
+  celoAlfajores,
 } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-
 import { http } from "wagmi";
+import { type Chain } from "viem";
 
-const config = getDefaultConfig({
+const localhost: Chain = {
+  id: 31337,
+  name: "Anvil Localhost",
+  nativeCurrency: { name: "Localhost", symbol: "L", decimals: 18 },
+  rpcUrls: {
+    default: { http: ["http://127.0.0.1:8545"] },
+  },
+};
+
+export const config = getDefaultConfig({
   appName: "proofify",
   projectId: "777043d787bf56c2f1f2875436d60ccf",
   chains: [
@@ -29,10 +40,13 @@ const config = getDefaultConfig({
     base,
     sepolia,
     arbitrumSepolia,
-    polygonAmoy,
+    polygonMumbai,
     baseSepolia,
     optimism,
     optimismSepolia,
+    celoAlfajores,
+    polygonAmoy,
+    localhost,
   ],
   transports: {
     [mainnet.id]: http(
@@ -50,6 +64,9 @@ const config = getDefaultConfig({
     [polygon.id]: http(
       "https://polygon-mainnet.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
     ),
+    [polygonMumbai.id]: http(
+      "https://polygon-mumbai.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
+    ),
     [polygonAmoy.id]: http(
       "https://polygon-amoy.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
     ),
@@ -65,8 +82,11 @@ const config = getDefaultConfig({
     [optimismSepolia.id]: http(
       "https://opt-sepolia.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
     ),
+    [celoAlfajores.id]: http("https://alfajores-forno.celo-testnet.org"),
+    [localhost.id]: http("http://127.0.0.1:8545"),
   },
 });
+
 const queryClient = new QueryClient();
 export const WagmiProviderContext = ({
   children,

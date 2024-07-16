@@ -26,7 +26,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/dashboard/verify/page.jsx"
+    "app/dashboard/verify/page.jsx",
+    "app/dashboard/findUserVerification/page.jsx",
+    "app/dashboard/myVerifications/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
