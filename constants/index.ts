@@ -3,9 +3,12 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 // NAVIGATION
 export const NAV_LINKS = [
   { href: "/", key: "home", label: "Home", icons: null },
-  { href: "/", key: "features", label: "Features", icons: null },
-  { href: "/", key: "how-it-works", label: "How It Works", icons: null },
-  { href: "/", key: "blog", label: "Blog", icons: null },
+  {
+    href: "#howItWorks",
+    key: "how-it-works",
+    label: "How It Works",
+    icons: null,
+  },
   {
     href: "https://github.com/preetsinghmakkar/proofify",
     key: "github",
@@ -43,19 +46,19 @@ export const FOOTER_CONTACT_INFO = {
 
 export const SOCIALS = [
   {
-    href: "https://twitter.com/proofify",
+    href: "https://x.com/Preet132319",
     key: "twitter",
     label: "Twitter",
     icons: Twitter,
   },
   {
-    href: "https://linkedin.com/company/proofify",
+    href: "https://www.linkedin.com/in/preet-singh-a65967302/",
     key: "linkedin",
     label: "LinkedIn",
     icons: Linkedin,
   },
   {
-    href: "https://github.com/preetsinghmakkar/proofify",
+    href: "https://github.com/preetsinghmakkar",
     key: "github",
     label: "Github",
     icons: Github,

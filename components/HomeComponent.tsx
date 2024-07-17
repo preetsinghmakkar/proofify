@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+"use client";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 import {
@@ -10,21 +10,28 @@ import {
   IconWallet,
 } from "@tabler/icons-react";
 
+import { useAccount } from "wagmi";
+
 export function Home() {
+  const { isConnected } = useAccount();
+
   return (
-    <BentoGrid className="max-w-4xl mx-auto">
-      {items.map((item, i) => (
-        <BentoGridItem
-          key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-          icon={item.icon}
-          className={""}
-          link={item.link}
-        />
-      ))}
-    </BentoGrid>
+    <>
+      <BentoGrid className="max-w-4xl mx-auto">
+        {items.map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            icon={item.icon}
+            className={""}
+            link={item.link}
+            isConnected={isConnected}
+          />
+        ))}
+      </BentoGrid>
+    </>
   );
 }
 
@@ -37,6 +44,7 @@ const Skeleton = ({ color }: Color) => (
     className={`flex flex-1 w-full h-full min-h-[6rem] rounded-xl ${color} dark:from-neutral-900 dark:to-neutral-800 to-neutral-100`}
   ></div>
 );
+
 const items = [
   {
     title: "Find Other User Verification Detail",

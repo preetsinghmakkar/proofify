@@ -28,6 +28,12 @@ const Page = () => {
 
   const router = useRouter();
 
+  const { isConnected } = useAccount();
+
+  if (!isConnected) {
+    router.push("/dashboard");
+  }
+
   useEffect(() => {
     if (address) {
       fetchData();
