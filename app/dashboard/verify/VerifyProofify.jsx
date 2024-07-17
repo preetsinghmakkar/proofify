@@ -11,11 +11,17 @@ export default function VerifyProof(props) {
   const [proof, setProof] = useState({});
   const [verified, setVerified] = useState(false);
   const [proofifyVerified, setProofifyVerified] = useState(false);
+  const [proofType, setProofType] = useState("");
 
   useEffect(() => {
     if (props.proof && Object.keys(props.proof).length > 0) {
       const newProof = Reclaim.transformForOnchain(props.proof);
       setProof(newProof);
+    }
+
+    if (props.selectedProofType) {
+      setProofType(props.selectedProofType);
+      console.log("SelectedProofType : ", proofType);
     }
 
     verify();
@@ -41,13 +47,22 @@ export default function VerifyProof(props) {
         console.log("Hash not verified");
       }
 
+      let type;
+      if (proofType === "LINKEDIN") {
+        type = 0;
+      } else if (proofType === "Github") {
+        type = 1;
+      } else if (proofType === "Twitter") {
+        type = 2;
+      }
+
       if (hash) {
         proofifyHash = await writeContract(config, {
           abi: proofifyAbi,
           address: "0x9a5E887027fD88CAE1FaE65195257a3d704cbff3",
           functionName: "VerifyUser",
           chainId: 80002,
-          args: [0],
+          args: [type],
         });
       }
 

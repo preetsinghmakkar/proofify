@@ -144,7 +144,7 @@ const Page = () => {
         </CardFooter>
       </Card>
 
-      <VerifyProofify proof={proof} />
+      <VerifyProofify proof={proof} selectedProofType={selectedProofValue} />
     </div>
   );
 };

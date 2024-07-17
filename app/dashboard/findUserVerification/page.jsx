@@ -32,7 +32,6 @@ import { CheckCircle, AlertCircle } from "lucide-react";
 
 const Page = () => {
   const contractAddress = "0x9a5E887027fD88CAE1FaE65195257a3d704cbff3";
-  // const { address } = useAccount();
   const [linkedInData, setLinkedInData] = useState(null);
   const [githubData, setGithubData] = useState(null);
   const [twitterData, setTwitterData] = useState(null);
