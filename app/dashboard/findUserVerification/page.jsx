@@ -69,7 +69,7 @@ const Page = () => {
               address: contractAddress,
               abi: proofifyAbi,
               functionName: "getUserVerifications",
-              args: [address, 1],
+              args: [address, 0],
             },
           ],
         }),
