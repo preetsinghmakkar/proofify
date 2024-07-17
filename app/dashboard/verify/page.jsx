@@ -18,11 +18,13 @@ import { HashLoader } from "react-spinners";
 import VerifyProofify from "./VerifyProofify";
 const Page = () => {
   const router = useRouter();
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const [url, setUrl] = useState("");
   const [proofVerified, setProofVerified] = useState(false);
   const [selectedProofValue, setSelectedProofValue] = useState("LinkedIn");
-  const [proof, setProof] = useState({});
+  const [proof, setProof] = useState(null);
+  const [verified, setVerified] = useState("");
+  const [proofifyVerified, setProofifyVerified] = useState("");
 
   useEffect(() => {
     if (!isConnected) {
@@ -99,15 +101,57 @@ const Page = () => {
       <Card className="bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
         <CardHeader className="flex flex-col items-center">
           <h1 className="text-4xl font-bold text-gray-900 text-center mb-2">
-            {proofVerified
-              ? "Proof Verified Successfully"
-              : "Verify Your Proof"}
+            {proofVerified ? (
+              <>
+                {verified && proofifyVerified ? (
+                  <>
+                    <h3 className="text-green-500">
+                      Metamask Account Verified Successfully
+                    </h3>
+                    <Button onClick={() => router.push("../myVerification")}>
+                      {" "}
+                      Let's Check Your Status{" "}
+                    </Button>
+                  </>
+                ) : (
+                  <h3 className="text-green-500">
+                    Proof Verified Successfully
+                  </h3>
+                )}
+              </>
+            ) : (
+              "Verify Your Proof"
+            )}
           </h1>
-          <CardDescription className="text-gray-600 text-center mb-4">
-            Verify your MetaMask account using Reclaim Protocol. It's safe,
-            secure, and privacy-focused.
+          <CardDescription className="text-gray-600 text-center mb-6 mt-4">
+            Let's Verify Your Metamask Account on Blockchain Now
           </CardDescription>
-          <Options onValueChange={handleValueChange} />
+
+          {proof ? (
+            <>
+              {verified && proofifyVerified ? (
+                <>
+                  <Button
+                    variant={"green"}
+                    onClick={() => router.push("../myVerification")}
+                    className="mt-6"
+                  >
+                    {" "}
+                    Let's Check Your Status{" "}
+                  </Button>
+                </>
+              ) : (
+                <VerifyProofify
+                  proof={proof}
+                  selectedProofType={selectedProofValue}
+                  setVerified={setVerified}
+                  setProofifyVerified={setProofifyVerified}
+                />
+              )}
+            </>
+          ) : (
+            <Options onValueChange={handleValueChange} />
+          )}
         </CardHeader>
         <CardContent className="flex flex-col items-center">
           <p className="text-gray-600 text-center mb-4">
@@ -125,10 +169,12 @@ const Page = () => {
               <div className="mt-4 flex flex-col items-center">
                 <QRCode value={url} size={200} />
                 <p className="text-gray-600 text-center mt-6">
-                  Scan the QR code with your MetaMask wallet to verify your
-                  proof.
+                  Scan the QR code with your Mobile Phone and Reclaim Protocol
+                  App
                 </p>
-                <p className="text-gray-600 text-center mt-6">URL: {url}</p>
+                <p className="text-gray-600 text-center mt-6 font-bold">
+                  URL: {url}
+                </p>
               </div>
             )}
           </div>
@@ -143,8 +189,6 @@ const Page = () => {
           </Button>
         </CardFooter>
       </Card>
-
-      <VerifyProofify proof={proof} selectedProofType={selectedProofValue} />
     </div>
   );
 };

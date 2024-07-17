@@ -6,6 +6,7 @@ import { abi } from "../../../constants/ProofifyAbi/abi";
 import { config } from "../../../constants/walletProvider";
 import { Reclaim } from "@reclaimprotocol/js-sdk";
 import { proofifyAbi } from "@/constants/ProofifyAbi/proofify-ReclaimAbi";
+import { Button } from "@/components/ui/button";
 
 export default function VerifyProof(props) {
   const [proof, setProof] = useState({});
@@ -42,6 +43,7 @@ export default function VerifyProof(props) {
 
       if (hash) {
         setVerified(true);
+        props.setVerified(hash);
         console.log("Hash is Verified");
       } else {
         console.log("Hash not verified");
@@ -68,6 +70,7 @@ export default function VerifyProof(props) {
 
       if (proofifyHash) {
         setProofifyVerified(proofifyHash);
+        props.setProofifyVerified(hash);
         console.log("Proofify Hash is Verified");
       } else {
         console.log("Proofify Hash is not Verified");
@@ -79,6 +82,7 @@ export default function VerifyProof(props) {
 
   return (
     <div>
+      <Button onClick={verify}>Verify Onchain</Button>
       {verified && <p> Proof verified </p>}
       {proofifyVerified && <p> Proofify verified </p>}
     </div>
