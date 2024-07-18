@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
@@ -49,17 +49,11 @@ const Page = () => {
     },
   });
 
-  function onSubmit(values) {
+  const onSubmit = (values) => {
     setAddress(values.address);
-  }
+  };
 
-  useEffect(() => {
-    if (address) {
-      fetchData();
-    }
-  }, [address]);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [linkedIn, github, twitter] = await Promise.all([
         readContracts(config, {
@@ -104,7 +98,13 @@ const Page = () => {
     } catch (error) {
       console.error("Error reading contract:", error);
     }
-  };
+  }, [address]);
+
+  useEffect(() => {
+    if (address) {
+      fetchData();
+    }
+  }, [address, fetchData]);
 
   return (
     <>
@@ -117,7 +117,7 @@ const Page = () => {
                 name="address"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>User's Address</FormLabel>
+                    <FormLabel>User&apos;s Address</FormLabel>
                     <FormControl>
                       <Input placeholder="0xca....ef9" {...field} />
                     </FormControl>
@@ -154,13 +154,13 @@ const Page = () => {
             {linkedInData !== null && linkedInData === false && (
               <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
                 <AlertCircle className="h-5 w-5 text-red-500" />
-                <p>User's account is not verified by LinkedIn.</p>
+                <p>User&apos;s account is not verified by LinkedIn.</p>
               </div>
             )}
             {linkedInData !== null && linkedInData === true && (
               <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <p>User's account is verified by LinkedIn successfully.</p>
+                <p>User&apos;s account is verified by LinkedIn successfully.</p>
               </div>
             )}
           </CardContent>
@@ -197,13 +197,13 @@ const Page = () => {
             {githubData !== null && githubData === false && (
               <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
                 <AlertCircle className="h-5 w-5 text-red-500" />
-                <p>User's account is not verified by GitHub.</p>
+                <p>User&apos;s account is not verified by GitHub.</p>
               </div>
             )}
             {githubData !== null && githubData === true && (
               <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <p>User's account is verified by GitHub successfully.</p>
+                <p>User&apos;s account is verified by GitHub successfully.</p>
               </div>
             )}
           </CardContent>
@@ -240,13 +240,13 @@ const Page = () => {
             {twitterData !== null && twitterData === false && (
               <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
                 <AlertCircle className="h-5 w-5 text-red-500" />
-                <p>User's account is not verified by Twitter.</p>
+                <p>User&apos;s account is not verified by Twitter.</p>
               </div>
             )}
             {twitterData !== null && twitterData === true && (
               <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <p>User's account is verified by Twitter successfully.</p>
+                <p>User&apos;s account is verified by Twitter successfully.</p>
               </div>
             )}
           </CardContent>

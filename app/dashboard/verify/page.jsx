@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useAccount } from "wagmi";
 import { Reclaim } from "@reclaimprotocol/js-sdk";
 import { useRouter } from "next/navigation";
@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { HashLoader } from "react-spinners";
 import VerifyProofify from "./VerifyProofify";
+
 const Page = () => {
   const router = useRouter();
   const { isConnected } = useAccount();
@@ -53,18 +54,7 @@ const Page = () => {
     return { APP_ID, providerId, AppSecret };
   };
 
-  useEffect(() => {
-    const runGenerateVerificationRequest = async () => {
-      await generateVerificationRequest();
-    };
-    runGenerateVerificationRequest();
-  }, [selectedProofValue]);
-
-  const handleValueChange = (value) => {
-    setSelectedProofValue(value);
-  };
-
-  const generateVerificationRequest = async () => {
+  const generateVerificationRequest = useCallback(async () => {
     const { APP_ID, providerId, AppSecret } =
       getCredentials(selectedProofValue);
     const reclaimClient = new Reclaim.ProofRequest(APP_ID);
@@ -94,6 +84,17 @@ const Page = () => {
     } catch (error) {
       console.error("Error generating verification request: ", error);
     }
+  }, [selectedProofValue]);
+
+  useEffect(() => {
+    const runGenerateVerificationRequest = async () => {
+      await generateVerificationRequest();
+    };
+    runGenerateVerificationRequest();
+  }, [generateVerificationRequest]);
+
+  const handleValueChange = (value) => {
+    setSelectedProofValue(value);
   };
 
   return (
@@ -110,7 +111,7 @@ const Page = () => {
                     </h3>
                     <Button onClick={() => router.push("../myVerification")}>
                       {" "}
-                      Let's Check Your Status{" "}
+                      Let&apos;s Check Your Status{" "}
                     </Button>
                   </>
                 ) : (
@@ -124,7 +125,7 @@ const Page = () => {
             )}
           </h1>
           <CardDescription className="text-gray-600 text-center mb-6 mt-4">
-            Let's Verify Your Metamask Account on Blockchain Now
+            Let&apos;s Verify Your Metamask Account on Blockchain Now
           </CardDescription>
 
           {proof ? (
@@ -137,7 +138,7 @@ const Page = () => {
                     className="mt-6"
                   >
                     {" "}
-                    Let's Check Your Status{" "}
+                    Let&apos;s Check Your Status{" "}
                   </Button>
                 </>
               ) : (
@@ -181,7 +182,7 @@ const Page = () => {
         </CardContent>
         <CardFooter className="flex justify-center">
           <Button
-            onClick={() => router.push("./howToUse")}
+            onClick={() => router.push("../#howToUse")}
             variant="link"
             className="text-blue-600 hover:text-blue-700"
           >

@@ -22,11 +22,9 @@ export default function VerifyProof(props) {
 
     if (props.selectedProofType) {
       setProofType(props.selectedProofType);
-      console.log("SelectedProofType : ", proofType);
+      console.log("SelectedProofType : ", props.selectedProofType);
     }
-
-    verify();
-  }, [props.proof]);
+  }, [props.proof, props.selectedProofType, proofType]);
 
   const verify = async () => {
     try {
@@ -83,8 +81,6 @@ export default function VerifyProof(props) {
   return (
     <div>
       <Button onClick={verify}>Verify Onchain</Button>
-      {verified && <p> Proof verified </p>}
-      {proofifyVerified && <p> Proofify verified </p>}
     </div>
   );
 }

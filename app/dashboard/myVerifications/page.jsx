@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
@@ -21,26 +21,20 @@ import { CheckCircle, AlertCircle } from "lucide-react"; // Ensure correct icon 
 const Page = () => {
   const contractAddress = "0x9a5E887027fD88CAE1FaE65195257a3d704cbff3";
 
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const [linkedInData, setLinkedInData] = useState(null);
   const [githubData, setGithubData] = useState(null);
   const [twitterData, setTwitterData] = useState(null);
 
   const router = useRouter();
 
-  const { isConnected } = useAccount();
-
-  if (!isConnected) {
-    router.push("/dashboard");
-  }
-
   useEffect(() => {
-    if (address) {
-      fetchData();
+    if (!isConnected) {
+      router.push("/dashboard");
     }
-  }, [address]);
+  }, [isConnected, router]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [linkedIn, github, twitter] = await Promise.all([
         readContracts(config, {
@@ -85,7 +79,13 @@ const Page = () => {
     } catch (error) {
       console.error("Error reading contract:", error);
     }
-  };
+  }, [address]);
+
+  useEffect(() => {
+    if (address) {
+      fetchData();
+    }
+  }, [address, fetchData]);
 
   return (
     <div className="flex flex-col lg:flex-row lg:space-x-4 lg:space-y-0 p-4 gap-4">
