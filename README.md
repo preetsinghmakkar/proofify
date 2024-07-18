@@ -36,7 +36,7 @@ Once verified and their MetaMask transaction is completed, users can visit the v
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/proofify.git
+   git clone https://github.com/preetsinghmakkar/proofify.git
    cd proofify
    ```
 

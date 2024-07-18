@@ -45,7 +45,14 @@ const Hero = () => {
             >
               Get Started
             </Button>
-            <Button type="button" title="Learn More" variant="green">
+            <Button
+              type="button"
+              title="Learn More"
+              variant="green"
+              onClick={() => {
+                router.push("https://github.com/preetsinghmakkar/proofify");
+              }}
+            >
               Learn More
             </Button>
           </div>
