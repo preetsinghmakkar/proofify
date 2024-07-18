@@ -109,10 +109,6 @@ const Page = () => {
                     <h3 className="text-green-500">
                       Metamask Account Verified Successfully
                     </h3>
-                    <Button onClick={() => router.push("../myVerification")}>
-                      {" "}
-                      Let&apos;s Check Your Status{" "}
-                    </Button>
                   </>
                 ) : (
                   <h3 className="text-green-500">
@@ -134,7 +130,7 @@ const Page = () => {
                 <>
                   <Button
                     variant={"green"}
-                    onClick={() => router.push("../myVerification")}
+                    onClick={() => router.push("../myVerifications")}
                     className="mt-6"
                   >
                     {" "}
