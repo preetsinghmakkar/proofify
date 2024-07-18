@@ -48,7 +48,7 @@ export default function VerifyProof(props) {
       }
 
       let type;
-      if (proofType === "LINKEDIN") {
+      if (proofType === "LinkedIn") {
         type = 0;
       } else if (proofType === "Github") {
         type = 1;
