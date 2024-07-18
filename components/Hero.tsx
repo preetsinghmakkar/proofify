@@ -119,16 +119,14 @@ const Hero = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <PlayCircle className="text-green-500 w-20 h-20 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out" />
               </div>
-              <Image
-                src="/video-thumbnail.jpg"
-                alt="Video Thumbnail"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
+              <video
+                src="/proofify.mp4"
+                controls
+                className="relative inset-0 w-full h-25 rounded-lg"
               />
             </div>
-            <div>
-              <p className="regular-16 text-gray-30">
+            <div className="flex flex-col justify-center items-center md:items-center lg:items-center">
+              <p className="regular-16 text-gray-30 text-center lg:text-center">
                 Watch this video to learn how Proofify simplifies credential
                 verification using blockchain technology. Discover the seamless
                 process and enhanced security features that ensure your
@@ -138,6 +136,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
+
       <section className="flex justify-center items-center bg-white py-20">
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-10 text-center">

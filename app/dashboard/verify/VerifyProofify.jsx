@@ -42,7 +42,6 @@ export default function VerifyProof(props) {
       if (hash) {
         setVerified(true);
         props.setVerified(hash);
-        console.log("Hash is Verified");
       } else {
         console.log("Hash not verified");
       }
@@ -69,11 +68,11 @@ export default function VerifyProof(props) {
       if (proofifyHash) {
         setProofifyVerified(proofifyHash);
         props.setProofifyVerified(hash);
-        console.log("Proofify Hash is Verified");
       } else {
         console.log("Proofify Hash is not Verified");
       }
     } catch (error) {
+      props.setError(error);
       console.log("error in Verify : ", error);
     }
   };

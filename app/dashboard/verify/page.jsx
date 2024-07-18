@@ -26,6 +26,7 @@ const Page = () => {
   const [proof, setProof] = useState(null);
   const [verified, setVerified] = useState("");
   const [proofifyVerified, setProofifyVerified] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (!isConnected) {
@@ -101,6 +102,11 @@ const Page = () => {
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex flex-col justify-center items-center p-6">
       <Card className="bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
         <CardHeader className="flex flex-col items-center">
+          {error && (
+            <p className="text-red-400 m-4">
+              Error in Verifying your details. Plz try again later!
+            </p>
+          )}
           <h1 className="text-4xl font-bold text-gray-900 text-center mb-2">
             {proofVerified ? (
               <>
@@ -143,6 +149,7 @@ const Page = () => {
                   selectedProofType={selectedProofValue}
                   setVerified={setVerified}
                   setProofifyVerified={setProofifyVerified}
+                  setError={setError}
                 />
               )}
             </>
