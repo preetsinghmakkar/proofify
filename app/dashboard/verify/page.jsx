@@ -130,7 +130,7 @@ const Page = () => {
                 <>
                   <Button
                     variant={"green"}
-                    onClick={() => router.push("../myVerifications")}
+                    onClick={() => router.push("./myVerifications")}
                     className="mt-6"
                   >
                     {" "}
