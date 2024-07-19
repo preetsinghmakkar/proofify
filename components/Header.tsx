@@ -1,16 +1,11 @@
 "use client";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/nextjs";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
-import { useAccount } from "wagmi";
+
 const Header = () => {
   const { isLoaded, isSignedIn, user } = useUser();
-
-  const Account = useAccount();
-
-  console.log("Account :", Account.address);
 
   if (!isLoaded || !isSignedIn) {
     return null;

@@ -72,10 +72,8 @@ const Page = () => {
       if (requestUrl) {
         await reclaimClient.startSession({
           onSuccessCallback: (proofs) => {
-            console.log("Verification success", proofs);
             setProofVerified(true);
             setProof(proofs[0]);
-            console.log(proof);
           },
           onFailureCallback: (error) => {
             console.error("Verification failed", error);

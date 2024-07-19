@@ -88,160 +88,171 @@ const Page = () => {
   }, [address, fetchData]);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:space-x-4 lg:space-y-0 p-4 gap-4">
-      <Card className="flex-1">
-        <CardHeader>
-          <CardTitle className="flex flex-row items-center justify-between">
-            LinkedIn
+    <>
+      <div className="flex flex-row space-x-4 lg:space-y-0 p-4 gap-4">
+        <Button
+          onClick={fetchData}
+          variant="outline"
+          className="px-4 py-2 bg-white text-black rounded-lg shadow-md hover:bg-red-600"
+        >
+          Refresh
+        </Button>
+      </div>
+      <div className="flex flex-col lg:flex-row lg:space-x-4 lg:space-y-0 p-4 gap-4">
+        <Card className="flex-1">
+          <CardHeader>
+            <CardTitle className="flex flex-row items-center justify-between">
+              LinkedIn
+              {linkedInData !== null && linkedInData === true && (
+                <Image
+                  src={"/green-tick.jpg"}
+                  alt="Verified"
+                  height={40}
+                  width={40}
+                />
+              )}
+            </CardTitle>
+            <CardDescription>Professional Networking</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {linkedInData !== null && linkedInData === false && (
+              <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
+                <AlertCircle className="h-5 w-5 text-red-500" />
+                <p>
+                  Your account is not verified by LinkedIn. Click on verify to
+                  proceed.
+                </p>
+              </div>
+            )}
             {linkedInData !== null && linkedInData === true && (
-              <Image
-                src={"/green-tick.jpg"}
-                alt="Verified"
-                height={40}
-                width={40}
-              />
+              <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                <p>Your account is verified by LinkedIn successfully.</p>
+              </div>
             )}
-          </CardTitle>
-          <CardDescription>Professional Networking</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {linkedInData !== null && linkedInData === false && (
-            <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
-              <AlertCircle className="h-5 w-5 text-red-500" />
-              <p>
-                Your account is not verified by LinkedIn. Click on verify to
-                proceed.
-              </p>
-            </div>
-          )}
-          {linkedInData !== null && linkedInData === true && (
-            <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
-              <CheckCircle className="h-5 w-5 text-green-500" />
-              <p>Your account is verified by LinkedIn successfully.</p>
-            </div>
-          )}
-        </CardContent>
-        <CardFooter className="flex justify-end">
-          {linkedInData !== null && linkedInData === true && (
-            <Button variant="outline" disabled>
-              Already Verified
-            </Button>
-          )}
-          {linkedInData !== null && linkedInData === false && (
-            <Button
-              onClick={() => {
-                router.push("./verify/");
-              }}
-              variant="green"
-            >
-              Verify
-            </Button>
-          )}
-        </CardFooter>
-      </Card>
+          </CardContent>
+          <CardFooter className="flex justify-end">
+            {linkedInData !== null && linkedInData === true && (
+              <Button variant="outline" disabled>
+                Already Verified
+              </Button>
+            )}
+            {linkedInData !== null && linkedInData === false && (
+              <Button
+                onClick={() => {
+                  router.push("./verify/");
+                }}
+                variant="green"
+              >
+                Verify
+              </Button>
+            )}
+          </CardFooter>
+        </Card>
 
-      <Card className="flex-1">
-        <CardHeader>
-          <CardTitle className="flex flex-row items-center justify-between">
-            GitHub
+        <Card className="flex-1">
+          <CardHeader>
+            <CardTitle className="flex flex-row items-center justify-between">
+              GitHub
+              {githubData !== null && githubData === true && (
+                <Image
+                  src={"/green-tick.jpg"}
+                  alt="Verified"
+                  height={40}
+                  width={40}
+                />
+              )}
+            </CardTitle>
+            <CardDescription>Code Repository</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {githubData !== null && githubData === false && (
+              <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
+                <AlertCircle className="h-5 w-5 text-red-500" />
+                <p>
+                  Your account is not verified by GitHub. Click on verify to
+                  proceed.
+                </p>
+              </div>
+            )}
             {githubData !== null && githubData === true && (
-              <Image
-                src={"/green-tick.jpg"}
-                alt="Verified"
-                height={40}
-                width={40}
-              />
+              <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                <p>Your account is verified by GitHub successfully.</p>
+              </div>
             )}
-          </CardTitle>
-          <CardDescription>Code Repository</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {githubData !== null && githubData === false && (
-            <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
-              <AlertCircle className="h-5 w-5 text-red-500" />
-              <p>
-                Your account is not verified by GitHub. Click on verify to
-                proceed.
-              </p>
-            </div>
-          )}
-          {githubData !== null && githubData === true && (
-            <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
-              <CheckCircle className="h-5 w-5 text-green-500" />
-              <p>Your account is verified by GitHub successfully.</p>
-            </div>
-          )}
-        </CardContent>
-        <CardFooter className="flex justify-end">
-          {githubData !== null && githubData === true && (
-            <Button variant="outline" disabled>
-              Already Verified
-            </Button>
-          )}
-          {githubData !== null && githubData === false && (
-            <Button
-              onClick={() => {
-                router.push("./verify/");
-              }}
-              variant="green"
-            >
-              Verify
-            </Button>
-          )}
-        </CardFooter>
-      </Card>
+          </CardContent>
+          <CardFooter className="flex justify-end">
+            {githubData !== null && githubData === true && (
+              <Button variant="outline" disabled>
+                Already Verified
+              </Button>
+            )}
+            {githubData !== null && githubData === false && (
+              <Button
+                onClick={() => {
+                  router.push("./verify/");
+                }}
+                variant="green"
+              >
+                Verify
+              </Button>
+            )}
+          </CardFooter>
+        </Card>
 
-      <Card className="flex-1">
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            Twitter
-            {twitterData !== null && twitterData === true && (
-              <Image
-                src={"/green-tick.jpg"}
-                alt="Verified"
-                height={40}
-                width={40}
-              />
+        <Card className="flex-1">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              Twitter
+              {twitterData !== null && twitterData === true && (
+                <Image
+                  src={"/green-tick.jpg"}
+                  alt="Verified"
+                  height={40}
+                  width={40}
+                />
+              )}
+            </CardTitle>
+            <CardDescription>Social Networking</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {twitterData !== null && twitterData === false && (
+              <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
+                <AlertCircle className="h-5 w-5 text-red-500" />
+                <p>
+                  Your account is not verified by Twitter. Click on verify to
+                  proceed.
+                </p>
+              </div>
             )}
-          </CardTitle>
-          <CardDescription>Social Networking</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {twitterData !== null && twitterData === false && (
-            <div className="flex items-center p-3 rounded-lg space-x-2 border border-red-500">
-              <AlertCircle className="h-5 w-5 text-red-500" />
-              <p>
-                Your account is not verified by Twitter. Click on verify to
-                proceed.
-              </p>
-            </div>
-          )}
-          {twitterData !== null && twitterData === true && (
-            <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
-              <CheckCircle className="h-5 w-5 text-green-500" />
-              <p>Your account is verified by Twitter successfully.</p>
-            </div>
-          )}
-        </CardContent>
-        <CardFooter className="flex justify-end">
-          {twitterData !== null && twitterData === true && (
-            <Button variant="outline" disabled>
-              Already Verified
-            </Button>
-          )}
-          {twitterData !== null && twitterData === false && (
-            <Button
-              onClick={() => {
-                router.push("./verify/");
-              }}
-              variant="green"
-            >
-              Verify
-            </Button>
-          )}
-        </CardFooter>
-      </Card>
-    </div>
+            {twitterData !== null && twitterData === true && (
+              <div className="flex items-center p-3 rounded-lg space-x-2 border border-green-500">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                <p>Your account is verified by Twitter successfully.</p>
+              </div>
+            )}
+          </CardContent>
+          <CardFooter className="flex justify-end">
+            {twitterData !== null && twitterData === true && (
+              <Button variant="outline" disabled>
+                Already Verified
+              </Button>
+            )}
+            {twitterData !== null && twitterData === false && (
+              <Button
+                onClick={() => {
+                  router.push("./verify/");
+                }}
+                variant="green"
+              >
+                Verify
+              </Button>
+            )}
+          </CardFooter>
+        </Card>
+      </div>
+    </>
   );
 };
 
