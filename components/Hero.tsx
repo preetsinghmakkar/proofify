@@ -122,15 +122,30 @@ const Hero = () => {
         <div className="max-container padding-container">
           <h2 className="bold-40 mb-10">How it Works</h2>
           <div className="grid gap-10 md:grid-cols-2">
-            <div className="relative aspect-w-16 aspect-h-9">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <PlayCircle className="text-green-500 w-20 h-20 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out" />
-              </div>
-              <video
-                src="/proofify.mp4"
-                controls
-                className="relative inset-0 w-full h-25 rounded-lg"
-              />
+            <div
+              className="relative"
+              style={{
+                paddingBottom: "56.25%",
+                position: "relative",
+                height: 0,
+              }}
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/7MbrxxgoZtU"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              ></iframe>
             </div>
             <div className="flex flex-col justify-center items-center md:items-center lg:items-center">
               <p className="regular-16 text-gray-30 text-center lg:text-center">
