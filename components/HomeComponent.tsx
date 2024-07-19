@@ -72,7 +72,7 @@ const items = [
     description: "Get instructions on how to use the platform.",
     header: <Skeleton color="bg-purple-200" />,
     icon: <IconHelpCircle className="h-4 w-4 text-neutral-500" />,
-    link: "./dashboard/howToUse/",
+    link: "../#howItWorks",
   },
   {
     title: "Github",

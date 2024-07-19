@@ -56,7 +56,7 @@ export const config = getDefaultConfig({
     //   "https://eth-sepolia.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
     // ),
     // [arbitrum.id]: http(
-    //   "https://arb-mainnet.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
+    //   `https://arb-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
     // ),
     // [arbitrumSepolia.id]: http(
     //   "https://arb-sepolia.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
@@ -68,7 +68,7 @@ export const config = getDefaultConfig({
     //   "https://polygon-mumbai.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
     // ),
     [polygonAmoy.id]: http(
-      "https://polygon-amoy.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
+      `https://polygon-amoy.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
     ),
     // [base.id]: http(
     //   "https://base-mainnet.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
