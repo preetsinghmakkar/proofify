@@ -68,7 +68,7 @@ export const config = getDefaultConfig({
     //   "https://polygon-mumbai.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
     // ),
     [polygonAmoy.id]: http(
-      `https://polygon-amoy.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
+      `https://polygon-amoy.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof`
     ),
     // [base.id]: http(
     //   "https://base-mainnet.g.alchemy.com/v2/gQ-Ckxh6jH9-r5fGL4o6xiuIPmUQiBof"
