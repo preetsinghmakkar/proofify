@@ -26,7 +26,7 @@ const Hero = () => {
       <section className="max-container padding-container flex flex-col gap-20 py-10 pb-0 md:gap-28 lg:py-20 xl:flex-row">
         <div className="hero-map" />
         <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-          <h1 className="bold-52 lg:bold-88">Verify Your Metamask Account</h1>
+          <h1 className="bold-52 ">Verify Your Metamask Account</h1>
           <p className="regular-16 mt-6 mb-6 text-gray-30 xl:max-w-[520px]">
             Proofify is an innovative decentralized application (DApp) designed
             to revolutionize the way credentials are verified and authenticated.
