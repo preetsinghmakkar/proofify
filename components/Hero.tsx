@@ -159,27 +159,39 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="flex justify-center items-center bg-white py-20">
+      <section className="flex flex-col items-center bg-white py-20">
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-10 text-center">
-            Meet the Developer
+            About the Creator
           </h2>
-          <div className="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-12">
-            <Card className="w-full md:w-2/3 lg:w-1/2">
-              <CardHeader className="flex flex-col items-center">
-                <Avatar className="h-40 w-40">
-                  <AvatarImage src="/profile-pic.jpeg" alt="Preet Singh" />
-                  <AvatarFallback>PS</AvatarFallback>
-                </Avatar>
-                <CardTitle className="text-2xl font-bold mt-4">
-                  Preet Singh
-                </CardTitle>
-                <CardDescription className="text-lg text-gray-500 text-center md:text-left">
-                  Solo Developer of Proofify. Passionate about blockchain
-                  technology and decentralized applications.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-col items-center gap-4 md:items-center">
+          <div className="flex flex-col items-center gap-10 md:flex-row md:gap-20">
+            <div className="relative w-64 h-64 rounded-full overflow-hidden">
+              <Image
+                src="/profile-pic.jpeg" // Your profile image
+                alt="Preet Singh"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full border-4 border-gray-300"
+              />
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-lg text-gray-700 mb-4">
+                Hello! I'm Preet Singh, the creator of Proofify. With a deep
+                commitment to enhancing security and verification in the
+                decentralized world, I've developed Proofify to simplify the
+                process of verifying MetaMask accounts on-chain. My goal is to
+                provide a secure and user-friendly platform that bridges the gap
+                between off-chain and on-chain verification.
+              </p>
+              <p className="text-lg text-gray-700 mb-4">
+                Proofify is designed to offer a seamless experience for users to
+                link their MetaMask accounts with trusted platforms like
+                LinkedIn, Twitter, or GitHub, ensuring their identity is
+                verified efficiently and securely. Feel free to connect with me
+                through the links below!
+              </p>
+
+              <div className="flex gap-4">
                 <Link href={"https://github.com/preetsinghmakkar"}>
                   <Button className="gap-1">
                     <Github className="w-6 h-6" />
@@ -200,8 +212,8 @@ const Hero = () => {
                     Twitter
                   </Button>
                 </Link>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
