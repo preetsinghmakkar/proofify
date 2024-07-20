@@ -26,7 +26,7 @@ const Hero = () => {
       <section className="max-container padding-container flex flex-col gap-20 py-10 pb-0 md:gap-28 lg:py-20 xl:flex-row">
         <div className="hero-map" />
         <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-          <h1 className="bold-52 ">Verify Your Metamask Account</h1>
+          <h1 className="bold-52">Verify Your MetaMask Account</h1>
           <p className="regular-16 mt-6 mb-6 text-gray-30 xl:max-w-[520px]">
             Proofify is an innovative decentralized application (DApp) designed
             to revolutionize the way credentials are verified and authenticated.
@@ -69,10 +69,10 @@ const Hero = () => {
                 <p className="regular-16 block text-gray-20">
                   Blockchain Verified
                 </p>
-                <p className="bold-20 text-white">Metamask Account</p>
+                <p className="bold-20 text-white">MetaMask Account</p>
               </div>
               <div className="flex flex-col justify-end items-end">
-                <p className="regular-16 block text-gray-20 ">Service Used</p>
+                <p className="regular-16 block text-gray-20">Service Used</p>
                 <p className="bold-20 text-white">Reclaim Protocol</p>
               </div>
             </div>
@@ -176,12 +176,12 @@ const Hero = () => {
             </div>
             <div className="flex flex-col items-center md:items-start">
               <p className="text-lg text-gray-700 mb-4">
-                Hello! I'm Preet Singh, the creator of Proofify. With a deep
-                commitment to enhancing security and verification in the
-                decentralized world, I've developed Proofify to simplify the
-                process of verifying MetaMask accounts on-chain. My goal is to
-                provide a secure and user-friendly platform that bridges the gap
-                between off-chain and on-chain verification.
+                Hello! I&apos;m Preet Singh, the creator of Proofify. With a
+                deep commitment to enhancing security and verification in the
+                decentralized world, I&apos;ve developed Proofify to simplify
+                the process of verifying MetaMask accounts on-chain. My goal is
+                to provide a secure and user-friendly platform that bridges the
+                gap between off-chain and on-chain verification.
               </p>
               <p className="text-lg text-gray-700 mb-4">
                 Proofify is designed to offer a seamless experience for users to
@@ -220,30 +220,55 @@ const Hero = () => {
 
       <section className="flexCenter flex-col bg-white py-20">
         <div className="max-container padding-container">
-          <h2 className="bold-40 mb-10">FAQ</h2>
+          <h2 className="bold-40 mb-10">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-              <AccordionTrigger>Is Proofify secure?</AccordionTrigger>
+              <AccordionTrigger>
+                What is Proofify and how does it work?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. Proofify uses blockchain technology and zkProtocol to
-                ensure all credentials are verified securely and transparently.
+                Proofify is a decentralized application (DApp) designed to
+                verify credentials using blockchain technology. It leverages the
+                Reclaim Protocol to securely and transparently verify user
+                credentials, such as MetaMask accounts, LinkedIn profiles, and
+                GitHub repositories. The verification process ensures that your
+                credentials are authenticated and stored on the blockchain for
+                added security and trust.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>How do I get started?</AccordionTrigger>
+              <AccordionTrigger>
+                How can I get started with Proofify?
+              </AccordionTrigger>
               <AccordionContent>
-                Simply sign up on our platform, connect your wallet, and start
-                verifying your credentials using our user-friendly interface.
+                To get started with Proofify, simply sign in using your MetaMask
+                wallet. Once signed in, you can link your accounts from various
+                platforms, such as LinkedIn and GitHub, and verify your
+                credentials on-chain. For more detailed instructions, visit our
+                &quot;Get Started&quot; page.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger>
-                Can I trust the verification process?
+                Is my data safe with Proofify?
               </AccordionTrigger>
               <AccordionContent>
-                Absolutely. Proofify leverages the Reclaim Protocol and
-                blockchain technology to provide a trustworthy verification
-                process.
+                Yes, your data is safe with Proofify. We use blockchain
+                technology to store and verify credentials, ensuring that your
+                data is protected and immutable. Additionally, we follow best
+                practices for data privacy and security to safeguard your
+                information.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>
+                Who can I contact for support or feedback?
+              </AccordionTrigger>
+              <AccordionContent>
+                For support or feedback, you can reach out to us through our
+                contact page or connect with the creator directly via the social
+                media links provided. We welcome your feedback and are here to
+                assist you with any questions or issues you may have.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
